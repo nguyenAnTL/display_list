@@ -1,6 +1,5 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
+import 'CardFlutter.dart';
 import 'package:flutter/material.dart';
 import 'ListFlut.dart';
 
@@ -28,25 +27,25 @@ class _ListFlutterState extends State<ListFlutter> {
     ListFlut('Nguyễn Minh Quân', true, 7.5),
   ];
 
-  Widget show(stud){
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text('Tên: ' + stud.name, style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
-            SizedBox(height: 10,),
-            Text('Giới Tính: ' + (stud.gender ? 'Nam' : 'Nữ'), style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
-            SizedBox(height: 10,),
-            Text('Điểm: ' + stud.score.toString(), style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
-          ],
-        ),
-      ),
-    );
-  }
+  // Card showCard(stud){
+  //   return Card(
+  //     margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+  //     color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+  //     child: Padding(
+  //       padding: const EdgeInsets.all(12),
+  //       child: Column(
+  //         crossAxisAlignment: CrossAxisAlignment.stretch,
+  //         children: [
+  //           Text('Tên: ' + stud.name, style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
+  //           SizedBox(height: 10,),
+  //           Text('Giới Tính: ' + (stud.gender ? 'Nam' : 'Nữ'), style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
+  //           SizedBox(height: 10,),
+  //           Text('Điểm: ' + stud.score.toString(), style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +58,7 @@ class _ListFlutterState extends State<ListFlutter> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: students.map((student) => show(student)).toList(),
+          children: students.map((student) => CardFlutter().showCard(student)).toList(),
         ),
       ),
     );

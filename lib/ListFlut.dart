@@ -4,4 +4,5 @@ class ListFlut{
   double ?score;
 
   ListFlut(this.name, this.gender, this.score);
+
 }
